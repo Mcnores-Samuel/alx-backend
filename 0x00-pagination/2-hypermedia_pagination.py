@@ -62,11 +62,14 @@ class Server:
         total_pages: the total number of pages in the dataset as an integer
         """
         data = self.get_page(page, page_size)
+        next_page = page + 1
+        if (page * page_size) - page_size >= len(data):
+            next_page = None
         return {
             'page_size': page_size,
             'page': page,
             'data': data,
-            'next_page': ((page + 1) if data else None),
+            'next_page': next_page,
             'prev_page': ((page - 1) if page > 1 else None),
             'total_pages': int(len(self.dataset()) / page_size)
         }
