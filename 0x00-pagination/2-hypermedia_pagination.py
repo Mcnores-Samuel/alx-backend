@@ -49,7 +49,7 @@ class Server:
         return data[offset:next_from]
 
     def get_hyper(self, page: int,
-                  page_size: int) -> Dict[str, Union[int, List[List], None]]:
+                  page_size: int) -> Dict:
         """Implements a get_hyper method that takes the same arguments
         (and defaults) as get_page and returns a dictionary containing
         the following key-value pairs:
