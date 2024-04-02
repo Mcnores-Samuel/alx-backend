@@ -5,7 +5,7 @@ and page_size with default value 10.
 """
 import csv
 import math
-from typing import List
+from typing import List, Dict, Union
 
 
 class Server:
@@ -48,7 +48,8 @@ class Server:
         data = self.dataset()
         return data[offset:next_from]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int,
+                  page_size: int) -> Dict[str, Union[int, List[List], None]]:
         """Implements a get_hyper method that takes the same arguments
         (and defaults) as get_page and returns a dictionary containing
         the following key-value pairs:
